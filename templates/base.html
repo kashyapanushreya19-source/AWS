@@ -1,50 +1,27 @@
-{% block title %}Add Student | Student Manager{% endblock %}
-{% block content %}
-<div class="auth-card">
-    <div class="card card-elevated">
-        <div class="card-body p-4 p-md-5">
-            <h1 class="h4 mb-4">Add Student</h1>
-            <form action="{{ url_for('add_student') }}" method="POST" enctype="multipart/form-data">
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-                    <label for="name">Name</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="age" name="age" placeholder="Age" required>
-                    <label for="age">Age</label>
-                </div>
-                <div class="form-floating mb-4">
-                    <input type="text" class="form-control" id="grade" name="grade" placeholder="Grade" required>
-                    <label for="grade">Grade</label>
-                </div>
-
-                <hr class="my-4">
-
-                <div class="mb-3">
-                    <label for="profile_image" class="form-label fw-medium">
-                        <i class="bi bi-image me-1"></i> Profile Image
-                        <span class="text-muted fw-normal">(PNG, JPG, JPEG, GIF, WEBP)</span>
-                    </label>
-                    <input type="file" class="form-control" id="profile_image" name="profile_image"
-                           accept=".png,.jpg,.jpeg,.gif,.webp">
-                </div>
-                <div class="mb-4">
-                    <label for="resume" class="form-label fw-medium">
-                        <i class="bi bi-file-earmark-text me-1"></i> Resume
-                        <span class="text-muted fw-normal">(PDF, DOC, DOCX)</span>
-                    </label>
-                    <input type="file" class="form-control" id="resume" name="resume"
-                           accept=".pdf,.doc,.docx">
-                </div>
-
-                <div class="d-flex justify-content-end gap-2">
-                    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">Cancel</a>
-                    <button type="submit" class="btn btn-primary btn-icon">
-                        <i class="bi bi-check-lg"></i> Save
-                    </button>
-                </div>
-            </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student Manager{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="{{ url_for('index') }}">
+                <i class="bi bi-mortarboard-fill"></i> Student Manager
+            </a>
         </div>
-    </div>
-</div>
-{% endblock %}
+    </nav>
+    <main class="container pb-5">
+        {% block content %}{% endblock %}
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
